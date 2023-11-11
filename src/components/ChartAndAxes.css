@@ -1,0 +1,39 @@
+.chart-and-axes {
+    display: grid;
+    grid-template-columns: 40px auto 40px;
+    grid-template-rows: auto 40px;
+    width: 90vw;
+    height: 70vh;
+}
+
+#yAxis {
+    grid-column: 1;
+    background-color: darkgreen
+}
+
+.xAxis {
+    grid-column: 2;
+    grid-row: 2;
+    width: 100%;
+    height: 100%;
+    color: black;
+}
+
+#chart-wrappper {
+    grid-row: 1;
+    grid-column: 2;
+}
+
+.canvases {
+    position: relative;
+    border: 1px solid black;
+}
+
+.audio-chart {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #181c24;
+}

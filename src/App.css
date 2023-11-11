@@ -24,6 +24,10 @@
   color: white;
 }
 
+.title {
+  margin-top: 2em;
+}
+
 .App-link {
   color: #61dafb;
 }
@@ -36,3 +40,5 @@
     transform: rotate(360deg);
   }
 }
+
+
