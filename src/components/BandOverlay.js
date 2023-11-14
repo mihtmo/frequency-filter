@@ -1,10 +1,12 @@
-import { useEffect, useRef, useState } from 'react';
+import { useContext, useEffect, useRef, useState } from 'react';
+import AudioContext from '../contexts/audioContext';
 import './BandOverlay.css';
 
 
-const BandOverlay = ({ chartDims, bandPassParams }) => {
+const BandOverlay = ({ xScale, chartDims }) => {
     // Set band center in pixels
-    const [bandCenter, setBandCenter] = useState(400);
+    const [audio, setAudio, bandPassParams, setBandPassParams] = useContext(AudioContext);
+    const [bandCenter, setBandCenter] = useState(null);
     const [bandWidth, setBandWidth] = useState(100);
     const canvasRef = useRef(null);
 
@@ -76,6 +78,10 @@ const BandOverlay = ({ chartDims, bandPassParams }) => {
         canvasCtx.lineTo(bandCenter - bandWidth / 2, 0);
         canvasCtx.lineTo(bandCenter - bandWidth / 2, chartDims.height);
         canvasCtx.stroke();
+        if (bandCenter) {
+            audio.band1.frequency.value = xScale.invert(bandCenter);
+        }
+
     }, [bandCenter, bandWidth])
 
 

@@ -6,9 +6,10 @@
     height: 70vh;
 }
 
-#yAxis {
+.yAxis {
     grid-column: 1;
-    background-color: darkgreen
+    width: 100%;
+    height: 100%;
 }
 
 .xAxis {
@@ -16,7 +17,6 @@
     grid-row: 2;
     width: 100%;
     height: 100%;
-    color: black;
 }
 
 #chart-wrappper {

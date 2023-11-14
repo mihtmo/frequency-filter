@@ -1,8 +1,9 @@
 import { useContext, useEffect, useRef } from 'react';
 import './FFTVisualizer.css';
 import AudioContext from '../contexts/audioContext';
+import * as d3 from "d3-scale";
 
-const FFTVisualizer = ({ chartDims }) => {
+const FFTVisualizer = ({ xScale, bandPassParams, chartDims, maxFreq }) => {
     const [audio] = useContext(AudioContext);
     const requestRef = useRef(null);
     const canvasRef = useRef(null);
@@ -12,48 +13,35 @@ const FFTVisualizer = ({ chartDims }) => {
         const canvasCtx = canvas.getContext('2d');
         canvas.width = chartDims.width;
         canvas.height = chartDims.height;
+        
+        // Limit to human hearing
+        const sampleRate = audio.ctx.sampleRate;
+        const binCount = audio.analyser.frequencyBinCount;
+        // Find number of frequencies each bin expresses
+        const freqPerBin = ((sampleRate / 2) / binCount);
+        // const maxBin = Math.ceil(maxFreq / freqPerBin);
+        // const xScale = d3.scaleSymlog().domain([0, 24000]).range([0, chartDims.width]).constant(30);
+        
         const paintCanvas = () => {
-            // Limit to human hearing
-            const maxFreq = 20000
-            const sampleRate = audio.ctx.sampleRate;
-            const binCount = audio.analyser.frequencyBinCount;
-            const binWidthFreq = ((sampleRate / 2) / binCount);
-            const maxBin = Math.ceil(maxFreq / binWidthFreq);
-            const dataArray = new Float32Array(maxBin);
-
-            let barHeight = null
-            // console.warn(dataArray)
+            const dataArray = new Float32Array(binCount);
             canvasCtx.clearRect(0, 0, chartDims.width, chartDims.height);
-            // setTimeout(() => {
             requestRef.current = requestAnimationFrame(paintCanvas);
-            // });
-            // requestAnimationFrame(paintCanvas);
-
-            console.log(maxBin)
             audio.analyser.getFloatFrequencyData(dataArray);
-            // console.log(canvas.clientHeight, (canvas.clientHeight - dataArray[0]));
-            // console.log(dataArray[0]);
-            let x = 0;
+            // console.warn(dataArray)
             canvasCtx.lineWidth = 1;
-            canvasCtx.strokeStyle = "rgb(0, 0, 0)";
+            canvasCtx.strokeStyle = "black";
             canvasCtx.beginPath();
             canvasCtx.lineTo(0, chartDims.height);
-            // canvasCtx.stroke();
 
-
-            for (let i = 0; i < maxBin; i++) {
-                //color based upon frequency
-                // Can use D3 for this as well!
-                x = (Math.log(i) / Math.log(maxBin)) * chartDims.width
-                const sliceWidth = ((Math.log(i + 1) / Math.log(maxBin) * chartDims.width) - x) - 1;
-                const sliceHeight = (dataArray[i] + 140) * 2;
-                if (i !== 0) {
-                  canvasCtx.lineTo(x, chartDims.height - sliceHeight);
-                }
-                x += sliceWidth;
+            for (let i = 0; i < binCount; i++) {
+                let freq = freqPerBin * i;
+                let x = xScale(freq);
+                let sliceHeight = (dataArray[i] + 140) * 2;
+                canvasCtx.lineTo(x, chartDims.height - sliceHeight);
             }
             canvasCtx.lineTo(chartDims.width, chartDims.height);
-            canvasCtx.fillStyle = 'grey'
+            canvasCtx.stroke()
+            canvasCtx.fillStyle = 'goldenrod'
             canvasCtx.fill();
         };
         paintCanvas();

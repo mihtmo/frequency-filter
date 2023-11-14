@@ -1,25 +1,16 @@
 import { useMemo } from "react";
-import * as d3 from "d3-scale";
 
-const XAxis = ({ domain, range }) => {
-
+const XAxis = ({ scale, domain, range, values }) => {
+  
     const ticks = useMemo(() => {
-        const xScale = d3.scaleSymlog().domain(domain).range(range).constant(30);
         const width = range[1] - range[0];
         const pixelsPerTick = 10;
-        const ticksTarget = Math.max(1, Math.floor(width / pixelsPerTick));
-        console.log(xScale.ticks(ticksTarget).map(value => ({
-            value, 
-            xOffset: xScale(value)
-        })))
-        const values = [0, 20, 50, 100, 200, 500, 1000, 2000, 5000, 10000, 20000]
+        // const ticksTarget = Math.max(1, Math.floor(width / pixelsPerTick));
         return values.map(value => ({
             value: value, 
-            xOffset: xScale(value)
+            xOffset: scale(value)
         }))
     }, [domain.join('-'), range.join('-')]);
-
-    console.log(ticks)
 
     return (
         <svg className='xAxis'>
@@ -31,7 +22,7 @@ const XAxis = ({ domain, range }) => {
               "v", 6,
             ].join(" ")}
             fill="none"
-            stroke="black"
+            stroke="white"
           />
           {ticks.map(({ value, xOffset }) => (
             <g
@@ -40,10 +31,11 @@ const XAxis = ({ domain, range }) => {
             >
               <line
                 y2="6"
-                stroke="black"
+                stroke="white"
               />
               <text
                 key={value}
+                fill='white'
                 style={{
                   fontSize: "10px",
                   textAnchor: "middle",
@@ -57,9 +49,57 @@ const XAxis = ({ domain, range }) => {
       )
 }
 
-const YAxis = () => {
-    return (
-        <div id='yAxis'> goodbye </div>
+const YAxis = ({ scale, domain, range }) => {
+
+  const axisWidth = 40;
+
+  const ticks = useMemo(() => {
+    const height = range[1] - range[0];
+    const pixelsPerTick = 20;
+    const ticksTarget = Math.max(1, Math.floor(height / pixelsPerTick));
+    return scale.ticks(ticksTarget).map(value => ({
+        value: value, 
+        yOffset: scale(value)
+    }));
+  }, [domain.join('-'), range.join('-')]);
+
+  console.error(ticks)
+
+  return (
+      <svg className='yAxis'>
+        <path
+          d={[
+            'M', axisWidth - 6, range[0],
+            'H', axisWidth,
+            'v', range[1],
+            'H', axisWidth - 6,
+          ].join(' ')}
+          fill='none'
+          stroke='white'
+        />
+        {ticks.map(({ value, yOffset }) => (
+          <g
+            key={value}
+            transform={`translate(0, ${yOffset})`}
+          >
+            <line
+              x1={`${axisWidth - 6}`}
+              x2={`${axisWidth}`}
+              stroke="white"
+            />
+            <text
+              key={value}
+              fill='white'
+              style={{
+                fontSize: "10px",
+                textAnchor: "middle",
+                transform: "translate(20px, .4em)"
+              }}>
+              { value }
+            </text>
+          </g>
+        ))}
+      </svg>
     )
 }
 
