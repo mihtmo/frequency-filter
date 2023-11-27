@@ -1,5 +1,30 @@
+.App[data-theme='light'] {
+  --border: #363739;
+  --text-default: #363739;
+  --container-mid: #edece9;
+  --container-back:  #f7f6f2;
+
+}
+
+.App[data-theme='dark'] {
+  --border: #667069;
+  --text-default: #d0c2a4;
+  --container-back: #232a2f;
+  --container-mid: #2b3339;
+  --container-highlight:#3b4349;
+  --container-fore: #313a3f;
+  --container-shadow: #131a1f;
+  --fill-color: #dbbc7a;
+}
+
+html {
+  font-family: arial;
+}
+
 .App {
   text-align: center;
+  color: var(--text-default);
+  font-family: 'montserrat';
 }
 
 .App-logo {
@@ -14,18 +39,13 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: var(--container-mid);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.title {
-  margin-top: 2em;
+  /* font-size: calc(10px + 2vmin); */
 }
 
 .App-link {
@@ -41,4 +61,8 @@
   }
 }
 
+#audio-player {
+  width: 80vw;
+  background-color: none;
+}
 

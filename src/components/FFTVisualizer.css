@@ -1,0 +1,10 @@
+.fft-canvas-wrapper {
+    height: 100%;
+    /* width: 100%; */
+}
+
+.fft-canvas {
+    opacity: 30%;
+    height: 100%;
+    width: 100%;
+}

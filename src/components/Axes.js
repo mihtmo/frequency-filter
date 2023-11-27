@@ -22,7 +22,7 @@ const XAxis = ({ scale, domain, range, values }) => {
               "v", 6,
             ].join(" ")}
             fill="none"
-            stroke="white"
+            stroke='var(--border)'
           />
           {ticks.map(({ value, xOffset }) => (
             <g
@@ -31,11 +31,11 @@ const XAxis = ({ scale, domain, range, values }) => {
             >
               <line
                 y2="6"
-                stroke="white"
+                stroke='var(--border)'
               />
               <text
                 key={value}
-                fill='white'
+                fill='var(--border)'
                 style={{
                   fontSize: "10px",
                   textAnchor: "middle",
@@ -63,8 +63,6 @@ const YAxis = ({ scale, domain, range }) => {
     }));
   }, [domain.join('-'), range.join('-')]);
 
-  console.error(ticks)
-
   return (
       <svg className='yAxis'>
         <path
@@ -75,7 +73,7 @@ const YAxis = ({ scale, domain, range }) => {
             'H', axisWidth - 6,
           ].join(' ')}
           fill='none'
-          stroke='white'
+          stroke='var(--border)'
         />
         {ticks.map(({ value, yOffset }) => (
           <g
@@ -85,11 +83,11 @@ const YAxis = ({ scale, domain, range }) => {
             <line
               x1={`${axisWidth - 6}`}
               x2={`${axisWidth}`}
-              stroke="white"
+              stroke='var(--border)'
             />
             <text
               key={value}
-              fill='white'
+              fill='var(--border)'
               style={{
                 fontSize: "10px",
                 textAnchor: "middle",
