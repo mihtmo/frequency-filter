@@ -17,9 +17,10 @@ const PresetMenu = () => {
     const [isOpen, setIsOpen] = useState(true);
     const [bandParams, setBandParams, bandActive, setBandActive] = useContext(BandContext);
     const [presets, setPresets] = useState({
-        'Tree Cricket': {centerFreq: 2750, lowFreq: 2300, highFreq: 3200},
-        'Field Cricket': {centerFreq:3300, lowFreq: 2800, highFreq: 4000},
-        'Road Noise': {centerFreq: 250, lowFreq: 0, highFreq: 2000}
+        'Field Cricket': {centerFreq: 2750, lowFreq: 2300, highFreq: 3200},
+        'Tree Cricket': {centerFreq:3300, lowFreq: 2800, highFreq: 4000},
+        'Road Noise': {centerFreq: 250, lowFreq: 0, highFreq: 2000},
+        'All': {centerFreq: 1000, lowFreq: 0, highFreq: 24000},
     });
 
     function handlePresetSelect(e) {
@@ -45,27 +46,31 @@ const PresetMenu = () => {
                     <SidebarIcon/>
                 </div>
                 <div id='menu-header'>
-                    <h2> Click to Solo: </h2>
+                    <h2> Sound Select: </h2>
                 </div>
-                <table id='presets-table'>
-                    {/* <th colspan='2' id='presets-header'> Presets: </th> */}
-                    {Object.keys(presets).map((presetName, i) => {
-                        return (
-                            <tr key={i} className='preset-row'>
-                                <td 
-                                    className='preset-name'
-                                    data-value={presetName} 
-                                    onClick={handlePresetSelect}
-                                >
-                                    {presetName}
-                                </td>
-                                <td className='preset-frequencies'>
-                                    {hertzToString(presets[presetName].lowFreq)} - {hertzToString(presets[presetName].highFreq)}
-                                </td>
-                            </tr>
-                        )
-                    })}
-                </table>
+                <div id='presets-table-wrapper'>
+                    <table id='presets-table'>
+                        <tbody>
+                            {/* <th colspan='2' id='presets-header'> Presets: </th> */}
+                            {Object.keys(presets).map((presetName, i) => {
+                                return (
+                                    <tr 
+                                        key={i} 
+                                        className='preset-row' 
+                                        onClick={handlePresetSelect}
+                                    >
+                                        <td className='preset-name' data-value={presetName}>
+                                            {presetName}
+                                        </td>
+                                        <td className='preset-frequencies'>
+                                            {hertzToString(presets[presetName].lowFreq)} - {hertzToString(presets[presetName].highFreq)}
+                                        </td>
+                                    </tr>
+                                )
+                            })}
+                        </tbody>
+                    </table>
+                </div>
             </div>
         ):(
             <div onClick={handleOpenMenu} id='closed-sidebar-icon' className='sidebar-icon-wrapper'>

@@ -39,7 +39,7 @@ html {
 }
 
 .App-header {
-  background-color: var(--container-mid);
+  background-color: var(--container-back);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -64,5 +64,10 @@ html {
 #audio-player {
   width: 80vw;
   background-color: none;
+  margin-top: .5em;
 }
 
+.title {
+  font-size: 1.5em;
+  letter-spacing: .5em;
+}

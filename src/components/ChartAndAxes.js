@@ -71,7 +71,8 @@ const ChartAndAxes = () => {
                 <YAxis
                     domain={yDomain}
                     range={yRange}
-                    scale={yScale}/>
+                    scale={yScale}
+                    label={'intensity (dB)'}/>
             }
             <BandContextProvider value={[bandParams, setBandParams, bandActive, setBandActive]}>
                 <div id='charts-and-menu-wrapper' className='canvases'>
@@ -96,7 +97,8 @@ const ChartAndAxes = () => {
                     values={xValues}
                     domain={xDomain}
                     range={xRange}
-                    scale={xScale}/>
+                    scale={xScale}
+                    label='frequency (hz)'/>
             }
       </div>
     )
