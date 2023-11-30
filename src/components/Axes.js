@@ -19,9 +19,9 @@ const XAxis = ({ scale, domain, range, values, label }) => {
         <svg className='xAxis'>
         <path
             d={[
-            "M", range[0], 6,
+            "M", range[0], 9,
             "v", -6,
-            "H", range[1],
+            "H", range[1] + 2,
             "v", 6,
             ].join(" ")}
             fill="none"
@@ -33,7 +33,8 @@ const XAxis = ({ scale, domain, range, values, label }) => {
             transform={`translate(${xOffset}, 0)`}
             >
             <line
-                y2="6"
+                y1="3"
+                y2="9"
                 stroke='var(--border)'
             />
             <text

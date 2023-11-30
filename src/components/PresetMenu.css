@@ -1,6 +1,7 @@
 #preset-menu {
+    display: flex;
     flex-direction: column;
-    justify-content: center;
+    /* justify-content: center; */
     align-content: center;
     align-items: center;
     user-select: none;
@@ -10,16 +11,18 @@
     border-radius: 4px;
 }
 
-#preset-menu-wrapper.menu-open {
-    flex-shrink: 0;
-    /* padding: 1em; */
-    background-color: var(--container-fore);
-    border-left: 1px solid var(--border);
+#preset-menu-wrapper {
     display: flex;
-    min-width: 100px;
+    flex-shrink: 0;
+    background-color: var(--container-fore);
     width: fit-content;
-    transition: width .25s ease-in-out;
+    transition: all .25s ease-in-out;
     position: relative;
+}
+
+#preset-menu-wrapper.menu-open {
+    border-left: 1px solid var(--border);
+    min-width: 100px;
     border-radius: 0 5px 0 0;
 }
 
@@ -29,10 +32,6 @@
 
 #preset-select {
     width: 90%;
-}
-
-#menu-header {
-    margin: 1em;
 }
 
 #soloist-header {
@@ -48,27 +47,22 @@
     transition: all .1s ease-in-out;
 }
 
-/* #preset-menu:hover {
-    background-color: var(--container-highlight);
-} */
-
 .sidebar-icon-wrapper:hover .sidebar-icon {
     stroke-width: 2.5px;
 }
 
-/* #presets-header {
-    padding: 1em;
-    font-weight: bold;
-    border-bottom: 1px solid var(--border);
-} */
-
-.preset-row {
+#presets-table .preset-row {
     text-decoration: underline;
+    border-bottom: 1px solid var(--border);
 }
 
-.preset-row:hover {
+#presets-table .preset-row:hover {
     background-color: var(--container-back);
     cursor: pointer;
+}
+
+#presets-table .preset-row:last-child { 
+    border-bottom: none; 
 }
 
 .preset-row:active {
@@ -145,7 +139,7 @@
 #presets-table-wrapper {
     overflow-y: auto;
     /* height: calc(100% - 2em); */
-    margin: 1em;
+    margin: 0 1em 1em 1em;
     border: 1px solid var(--border);
 }
 
@@ -159,17 +153,7 @@
     background-color: var(--container-highlight);
 }
 
-​#presets-table .preset-row {
-    border-bottom: 1px solid var(--border);
-    background-color: green;
-}​
-
-#presets-table .preset-row:last-child { 
-    border-bottom: none; 
-}
-
 #presets-table td {
     text-align: left;
     padding: .75em;
-    /* border: 1px solid var(--border); */
 }

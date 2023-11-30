@@ -4,12 +4,15 @@ import './App.css';
 import {createRef, useEffect, useRef, useState} from 'react';
 import ChartAndAxes from './components/ChartAndAxes';
 import { AudioProvider } from './contexts/AudioContext';
+import LightOrDarkIcon from './components/LightOrDarkIcon';
+import PlayOrPauseIcon from './components/PlayOrPauseIcon';
+import CustomAudioControls from './components/CustomAudioControls';
 
 function App() {
     const [audio, setAudio] = useState({});
     // Check theme of browser
-    const [theme, setTheme] = useState(
-        window.matchMedia("(prefers-color-scheme: dark)").matches?'dark':'light'
+    const [isDarkTheme, setIsDarkTheme] = useState(
+        window.matchMedia("(prefers-color-scheme: dark)").matches
     );
     const audioPlayerRef = useRef();
     const analyserRef = useRef();
@@ -45,14 +48,22 @@ function App() {
         analyserRef.current.connect(ctx.destination);
         setAudio({
             ...audio,
+            'playerRef': audioPlayerRef,
             'ctx': ctx,
             'analyser': analyserRef.current,
             'bandRefs': bandRefs
         });
     }, [])
 
+    function handleThemeChange() {
+        setIsDarkTheme(!isDarkTheme)
+    }
+
     return (
-        <div className='App' data-theme={theme}>
+        <div className='App' data-theme={isDarkTheme?'dark':'light'}>
+            <LightOrDarkIcon
+                isDarkTheme={isDarkTheme}
+                clickHandler={handleThemeChange}/>
             <header className='App-header'>
                 <div className='title'>
                     <h1> Sound Explorer </h1>
@@ -60,9 +71,10 @@ function App() {
                 { analyserRef.current && 
                     <AudioProvider value={[audio, setAudio]}>
                         <ChartAndAxes/>
+                        <CustomAudioControls/>
                     </AudioProvider>
                     }
-                <audio id={'audio-player'} ref={audioPlayerRef} controls loop>
+                <audio id='audio-player' ref={audioPlayerRef} controls loop>
                     <source src={sample} type='audio/wav'/>
                     Your browser does not support the audio element.
                 </audio>

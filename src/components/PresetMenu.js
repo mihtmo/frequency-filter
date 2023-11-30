@@ -1,6 +1,5 @@
 import { useContext, useState } from 'react';
 import './PresetMenu.css';
-import ChevronLeft from './ChevronLeft';
 import SidebarIcon from './SidebarIcon';
 import BandContext from '../contexts/BandContext';
 

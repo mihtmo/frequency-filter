@@ -1,9 +1,12 @@
 .App[data-theme='light'] {
   --border: #363739;
   --text-default: #363739;
-  --container-mid: #edece9;
   --container-back:  #f7f6f2;
-
+  --container-mid: #edece9;
+  --container-fore: #deddda;
+  --container-highlight: #edece9;
+  --container-shadow: #e3e1dd;
+  --fill-color: rgb(106, 106, 1);
 }
 
 .App[data-theme='dark'] {
@@ -25,6 +28,7 @@ html {
   text-align: center;
   color: var(--text-default);
   font-family: 'montserrat';
+  background-color: var(--container-back);
 }
 
 .App-logo {
@@ -50,6 +54,13 @@ html {
 
 .App-link {
   color: #61dafb;
+}
+
+#theme-icon-wrapper {
+  position: absolute;
+  margin: 1em;
+  top: 0;
+  right: 0;
 }
 
 @keyframes App-logo-spin {
