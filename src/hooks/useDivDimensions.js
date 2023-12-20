@@ -5,9 +5,7 @@ import { useEffect, useState } from "react";
 const useDivDimensions = (ref) => {
 
     useEffect(() => {
-        function handleResize() {
-            console.log('hello')
-        };
+        function handleResize() {};
         ref.current.addEventListener('resize', handleResize);
         return () => { ref.current.removeEventListener('resize', handleResize) };
     }, [])

@@ -13,8 +13,6 @@ const XAxis = ({ scale, domain, range, values, label }) => {
         }))
     }, [domain.join('-'), range.join('-')]);
 
-    console.log(width)
-
     return (
         <svg className='xAxis'>
         <path

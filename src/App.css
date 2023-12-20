@@ -1,4 +1,4 @@
-.App[data-theme='light'] {
+.theme-wrapper[data-theme='light'] {
   --border: #363739;
   --text-default: #363739;
   --container-back:  #f7f6f2;
@@ -6,10 +6,10 @@
   --container-fore: #deddda;
   --container-highlight: #edece9;
   --container-shadow: #e3e1dd;
-  --fill-color: rgb(106, 106, 1);
+  --fill-color: #547a20;
 }
 
-.App[data-theme='dark'] {
+.theme-wrapper[data-theme='dark'] {
   --border: #667069;
   --text-default: #d0c2a4;
   --container-back: #232a2f;
@@ -22,27 +22,49 @@
 
 html {
   font-family: arial;
+  background-color: var(--container-back);
 }
 
-.App {
+#portrait-overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--container-back);
+  z-index: 100;
+}
+
+#overlay-text-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.theme-wrapper {
   text-align: center;
   color: var(--text-default);
   font-family: 'montserrat';
   background-color: var(--container-back);
 }
 
-.App-logo {
+/* .App-logo {
   height: 40vmin;
   pointer-events: none;
-}
+} */
 
-@media (prefers-reduced-motion: no-preference) {
+/* @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
-}
+} */
 
-.App-header {
+.page-header {
   background-color: var(--container-back);
   min-height: 100vh;
   display: flex;
@@ -54,6 +76,10 @@ html {
 
 .App-link {
   color: #61dafb;
+}
+
+.rotate-icon {
+  margin: 1em;
 }
 
 #theme-icon-wrapper {

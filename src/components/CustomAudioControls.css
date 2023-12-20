@@ -1,16 +1,50 @@
 #controls-wrapper {
     display: flex;
     align-items: center;
+    justify-items: center;
+    background-color: var(--container-fore);
+    padding: .5em .75em;
+    width: 80%;
+    gap: .5em;
+    border-radius: 10px;
+    background-image: linear-gradient();
+    margin: 1em;
 }
 
-input[type="range"] {
+#audio-player-volume {
+    flex-grow: 1;
+    accent-color: var(--fill-color);
+}
+
+#audio-player-timeline {
+    flex-grow: 30;
+    accent-color: var(--fill-color);
+    background: blue;
+}
+
+#file-time-text {
+    /* min-width: 11em; */
+}
+
+#current-time-text {
+    display: inline-block;
+    min-width: 5em;
+}
+
+#total-time-text {
+    display: inline-block;
+    min-width: 5em;
+}
+
+input[type='range'] {
     --range-progress: 0;
+    background-color: red;
     /* ... */
 }
 
-input[type="range"]::before {
+input[type='range']::before {
     /* ... */
     background: #f50;
     width: var(--range-progress);
     /* ... */
-  }
+}

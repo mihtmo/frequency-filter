@@ -14,22 +14,18 @@ const FFTVisualizer = ({ xScale, yScale, chartDims }) => {
         canvas.height = chartDims.height;
         canvas.width = chartDims.width;
 
-        // Limit to human hearing
         const sampleRate = audio.ctx.sampleRate;
         const binCount = audio.analyser.frequencyBinCount;
         // Find number of frequencies each bin expresses
         const freqPerBin = ((sampleRate / 2) / binCount);
-        // const maxBin = Math.ceil(maxFreq / freqPerBin);
-        // const xScale = d3.scaleSymlog().domain([0, 24000]).range([0, chartDims.width]).constant(30);
         
         const paintCanvas = () => {
             const dataArray = new Float32Array(binCount);
             canvasCtx.clearRect(0, 0, chartDims.width, chartDims.height);
             requestRef.current = requestAnimationFrame(paintCanvas);
             audio.analyser.getFloatFrequencyData(dataArray);
-            // console.warn(dataArray)
             canvasCtx.lineWidth = 2;
-            const strokeColor = window.getComputedStyle(document.querySelector('.App')).getPropertyValue('--fill-color');
+            const strokeColor = window.getComputedStyle(document.querySelector('.theme-wrapper')).getPropertyValue('--fill-color');
             canvasCtx.strokeStyle = strokeColor;
             canvasCtx.beginPath();
             canvasCtx.lineTo(0, chartDims.height);
@@ -42,7 +38,7 @@ const FFTVisualizer = ({ xScale, yScale, chartDims }) => {
             }
             canvasCtx.lineTo(chartDims.width, chartDims.height);
             canvasCtx.stroke();
-            const fillColor = window.getComputedStyle(document.querySelector('.App')).getPropertyValue('--fill-color');
+            const fillColor = window.getComputedStyle(document.querySelector('.theme-wrapper')).getPropertyValue('--fill-color');
             canvasCtx.fillStyle = fillColor;
             canvasCtx.fill();
         };

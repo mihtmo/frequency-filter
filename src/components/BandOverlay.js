@@ -1,7 +1,7 @@
 import { useContext, useEffect, useRef, useState } from 'react';
 import AudioContext from '../contexts/AudioContext';
 import './BandOverlay.css';
-import PowerButton from './PowerButton';
+import PowerIcon from './icons/PowerIcon';
 import BandContext from '../contexts/BandContext';
 
 // NOTE:
@@ -89,7 +89,6 @@ const BandOverlay = ({ xScale, chartDims }) => {
                     break;
             }
         }
-        console.log(bandParams)
         function endDrag() {
             window.removeEventListener('mousemove', handleDrag);
             window.removeEventListener('mouseup', endDrag);
@@ -98,13 +97,7 @@ const BandOverlay = ({ xScale, chartDims }) => {
         window.addEventListener('mouseup', endDrag);
     }
 
-    // function handleMouseOver(e) {
-    //     let mouseCoords = [e.clientX, e.clientY];
-    //     let chartCoords = [mouseCoords[0] - chartDims.left, mouseCoords[1] - chartDims.top];
-    // }
-
     function updateBandRefs() {
-        console.log(bandParams)
         const lowFrequency = bandParams.lowFreq;
         const highFrequency = bandParams.highFreq;
         const centerFrequency = bandParams.centerFreq;
@@ -228,7 +221,7 @@ const BandOverlay = ({ xScale, chartDims }) => {
                     y2={chartDims.height/2 + 6}
                     strokeWidth={1}
                     stroke={mainColor}/>
-                <PowerButton 
+                <PowerIcon
                     x={bandDims.left + bandDims.width - 24} 
                     y={chartDims.height - 24} 
                     radius={18} 

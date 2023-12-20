@@ -1,0 +1,5 @@
+#play-button-wrapper {
+    display: flex;
+    height: fit-content;
+    width: fit-content;
+}

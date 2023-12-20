@@ -56,6 +56,7 @@
     border-bottom: 1px solid var(--border);
 }
 
+
 #presets-table .preset-row:hover {
     background-color: var(--container-back);
     cursor: pointer;
@@ -68,6 +69,11 @@
 .preset-row:active {
     background-color: var(--container-mid);
 }
+/* 
+#presets-table td {
+    user-select: none;
+    pointer-events: none;
+} */
 
 #open-sidebar-icon {
     background-color: var(--container-mid);
