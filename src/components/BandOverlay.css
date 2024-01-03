@@ -13,6 +13,7 @@
     cursor: pointer;
     transition: opacity .1s ease-in-out;
     opacity: 10%;
+    touch-action: none;
 }
 
 #band-overlay-chart:hover #band {
@@ -39,6 +40,7 @@
 .band-edge {
     cursor: col-resize;
     opacity: 0%;
+    touch-action: none;
 }
 
 .band-edge-line, .band-edge-handle {

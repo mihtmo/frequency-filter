@@ -6,7 +6,7 @@ import FFTVisualizer from "./FFTVisualizer";
 import AudioContext from "../contexts/AudioContext";
 import useWindowDimensions from "../hooks/useWindowDimensions";
 import * as d3 from "d3-scale";
-import PresetMenu from "./PresetMenu";
+import Sidebar from "./Sidebar";
 import useDivDimensions from "../hooks/useDivDimensions";
 import BandContext, { BandContextProvider } from "../contexts/BandContext";
 
@@ -89,17 +89,17 @@ const ChartAndAxes = () => {
                             </>
                         ) }
                     </div>
-                    <PresetMenu/>
+                    <Sidebar/>
                 </div>
             </BandContextProvider>
-            {chartDims.width &&
+            {chartDims.width && (
                 <XAxis
                     values={xValues}
                     domain={xDomain}
                     range={xRange}
                     scale={xScale}
                     label='frequency (hz)'/>
-            }
+            )}
       </div>
     )
 }

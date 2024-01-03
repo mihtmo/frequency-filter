@@ -1,0 +1,34 @@
+.preset-button {
+    cursor: pointer;
+    background-color: var(--container-highlight);
+    min-width: fit-content;
+    width: 100%;
+    padding: .5em;
+    color: var(--text-primary);
+    border: 1px solid var(--border);
+}
+
+.preset-button:hover {
+    background-color: var(--container-back);
+}
+
+.preset-button:active {
+    background-color: var(--container-fore);
+}
+
+.preset-image {
+    display: inline-block;
+    width: 150px;
+    height: 150px;
+}
+
+.preset-wrapper {
+    display: flex;
+    gap: .5em;
+}
+
+.sound-source-icon {
+    fill: var(--text-default);
+    height: 30px;
+    width: 30px;
+}

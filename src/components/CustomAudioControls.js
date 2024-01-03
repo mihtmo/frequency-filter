@@ -71,7 +71,8 @@ const CustomAudioControls = ({}) => {
                 min={0}
                 max={audioDuration ? audioDuration : '...'}
                 defaultValue={0}
-                onChange={handleProgressBar}/>
+                onChange={handleProgressBar}
+                onInput={handleProgressBar}/>
             <div id='file-time-wrapper'>
                 <span id='current-time-text'>{secondsToTimestamp(currentTime)}</span>
                 /
@@ -85,7 +86,9 @@ const CustomAudioControls = ({}) => {
                 min={0}
                 max={1}
                 step='.01'
-                onChange={handleVolumeChange}/>
+                defaultValue={.5}
+                onChange={handleVolumeChange}
+                onInput={handleVolumeChange}/>
         </div>
     )
 }

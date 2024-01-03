@@ -31,13 +31,21 @@ const BandOverlay = ({ xScale, chartDims }) => {
     // }, [chartDims])
 
     function handleMouseDown(e) {
+        const eventType = e.type;
+        if (e.type === 'touchstart') {
+            e = e.touches[0];
+        }
         // Get coords for mouse on page
         const startMouseCoords = [e.clientX, e.clientY]
-
         // Get id for selected element
         const target = e.target.id;
 
         function handleDrag(e) {
+            console.log(e)
+            if (e.type === 'touchmove') {
+                e = e.touches[0];
+            }
+            console.log('what')
             const currMouseCoords = [e.clientX, e.clientY];
             const currChartCoords = [currMouseCoords[0] - chartDims.left, currMouseCoords[1] - chartDims.top];
             let newWidth = null;
@@ -93,8 +101,17 @@ const BandOverlay = ({ xScale, chartDims }) => {
             window.removeEventListener('mousemove', handleDrag);
             window.removeEventListener('mouseup', endDrag);
         }
-        window.addEventListener('mousemove', handleDrag);
-        window.addEventListener('mouseup', endDrag);
+        function endTouch() {
+            window.removeEventListener('touchmove', handleDrag);
+            window.removeEventListener('touchend', endTouch);
+        }
+        if (eventType === 'touchstart') {
+            window.addEventListener('touchmove', handleDrag, { passive: false });
+            window.addEventListener('touchend', endTouch, { passive: false });
+        } else if (eventType === 'mousedown') {
+            window.addEventListener('mousemove', handleDrag, { passive: false });
+            window.addEventListener('mouseup', endDrag, { passive: false });
+        }
     }
 
     function updateBandRefs() {
@@ -149,7 +166,8 @@ const BandOverlay = ({ xScale, chartDims }) => {
     return (
         <div 
             // onMouseMove={handleMouseOver} 
-            onMouseDown={handleMouseDown} 
+            onMouseDown={handleMouseDown}
+            onTouchStart={handleMouseDown}
             id={'band-overlay-chart'} 
             ref={chartRef}
         >
@@ -184,7 +202,8 @@ const BandOverlay = ({ xScale, chartDims }) => {
                     x={bandDims.left + bandDims.width - 13} 
                     width={26} 
                     height={chartDims.height}
-                    onMouseDown={handleMouseDown}/>
+                    onMouseDown={handleMouseDown}
+                    onTouchStart={handleMouseDown}/>
                 <line
                     id='band-edge-line-left'
                     className='band-edge-line'
