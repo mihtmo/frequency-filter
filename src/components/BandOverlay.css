@@ -46,6 +46,7 @@
 .band-edge-line, .band-edge-handle {
     opacity: 25%;
     transition: all .1s ease-in-out;
+    touch-action: none;
 }
 
 #band-edge-left:hover ~ #band-edge-line-left,

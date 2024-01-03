@@ -31,7 +31,9 @@ const BandOverlay = ({ xScale, chartDims }) => {
     // }, [chartDims])
 
     function handleMouseDown(e) {
+        // Get event type
         const eventType = e.type;
+        // Get event for touch devices
         if (e.type === 'touchstart') {
             e = e.touches[0];
         }
@@ -41,11 +43,10 @@ const BandOverlay = ({ xScale, chartDims }) => {
         const target = e.target.id;
 
         function handleDrag(e) {
-            console.log(e)
+            // Get event for touch devices
             if (e.type === 'touchmove') {
                 e = e.touches[0];
             }
-            console.log('what')
             const currMouseCoords = [e.clientX, e.clientY];
             const currChartCoords = [currMouseCoords[0] - chartDims.left, currMouseCoords[1] - chartDims.top];
             let newWidth = null;

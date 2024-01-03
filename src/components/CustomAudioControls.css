@@ -10,6 +10,7 @@
     background-image: linear-gradient();
     margin: 1em;
     border: 1px solid var(--border);
+    user-select: none;
 }
 
 #audio-player-volume {
@@ -40,12 +41,9 @@
 input[type='range'] {
     --range-progress: 0;
     background-color: red;
-    /* ... */
 }
 
 input[type='range']::before {
-    /* ... */
     background: #f50;
     width: var(--range-progress);
-    /* ... */
 }
