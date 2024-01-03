@@ -1,6 +1,6 @@
 {
-  "name": "symphony-of-sound",
-  "version": "0.1.0",
+  "name": "sound-explorer",
+  "version": "0.8",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
