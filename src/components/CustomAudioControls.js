@@ -21,8 +21,6 @@ const CustomAudioControls = ({}) => {
             audio.playerRef.current.pause();
             setIsPlaying(false);
         }
-        alert(isPlaying)
-        alert(audio.playerRef.current)
     }
 
     function handleProgressBar(e) {
