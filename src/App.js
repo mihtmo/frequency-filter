@@ -107,7 +107,7 @@ function App() {
                             <CustomAudioControls/>
                         </AudioProvider>
                     ) }
-                    <audio id='audio-player' ref={audioPlayerRef} loop>
+                    <audio id='audio-player' preload='auto' ref={audioPlayerRef} loop>
                         <source src={sample} type='audio/wav'/>
                         Your browser does not support the audio element.
                     </audio>
