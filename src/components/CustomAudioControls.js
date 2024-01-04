@@ -14,6 +14,10 @@ const CustomAudioControls = ({}) => {
     const [currentTime, setCurrentTime] = useState('loading...');
 
     function handlePlayPause() {
+        // This fixes issues with Safari trying to protect users from autoplay
+        if (audio.ctx.state === 'suspended') {
+            audio.ctx.resume();
+        }
         if (audio.playerRef.current.paused) {
             audio.playerRef.current.play();
             setIsPlaying(true);
