@@ -108,7 +108,7 @@ function App() {
                         </AudioProvider>
                     ) }
                     <audio id='audio-player' preload='auto' ref={audioPlayerRef} loop>
-                        <source src={sample} type='audio/wav'/>
+                        <source src={sample} type='audio/mpeg'/>
                         Your browser does not support the audio element.
                     </audio>
                 </header>

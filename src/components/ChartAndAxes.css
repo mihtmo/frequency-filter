@@ -24,7 +24,11 @@
 #charts-and-menu-wrapper {
     display: flex;
     position: relative;
-    height: 100%;
+    /* TODO: Hardcoding this size dependent on axis size is not great. 
+    This is a workaround for how Safari chooses to handle relative grid 
+    dimensions. Seek a solution */
+    height: calc(70vh - 40px);
+    box-sizing: border-box;
     width: 100%;
     grid-row: 1;
     grid-column: 2;

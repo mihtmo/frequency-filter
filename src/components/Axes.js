@@ -18,7 +18,7 @@ const XAxis = ({ scale, domain, range, values, label }) => {
         <path
             d={[
             "M", range[0], 9,
-            "v", -6,
+            "v", -9,
             "H", range[1] + 2,
             "v", 6,
             ].join(" ")}
@@ -31,8 +31,8 @@ const XAxis = ({ scale, domain, range, values, label }) => {
             transform={`translate(${xOffset}, 0)`}
             >
             <line
-                y1="3"
-                y2="9"
+                y1="0"
+                y2="6"
                 stroke='var(--border)'
             />
             <text
