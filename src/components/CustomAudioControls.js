@@ -4,6 +4,7 @@ import AudioContext from "../contexts/AudioContext";
 import './CustomAudioControls.css'
 import { secondsToTimestamp } from "../helpers/secondsToTimestamp";
 import VariableVolumeIcon from "./icons/VariableVolumeIcon";
+import isMobileBrowser from "../helpers/isMobileBrowser";
 
 const CustomAudioControls = ({}) => {
     const [isPlaying, setIsPlaying] = useState(false);
@@ -11,7 +12,7 @@ const CustomAudioControls = ({}) => {
     const requestRef = useRef(null);
     const timelineRef = useRef(null);
     const [volumeLevel, setVolumeLevel] = useState(.5);
-    const [currentTime, setCurrentTime] = useState('loading...');
+    const [currentTime, setCurrentTime] = useState(null);
 
     function handlePlayPause() {
         // This fixes issues with Safari trying to protect users from autoplay
@@ -79,20 +80,28 @@ const CustomAudioControls = ({}) => {
                 onInput={handleProgressBar}/>
             <div id='file-time-wrapper'>
                 <span id='current-time-text'>{secondsToTimestamp(currentTime)}</span>
-                /
-                <span id='total-time-text'>{secondsToTimestamp(audio.playerRef.current.duration.toFixed(2))}</span>
+                { !isNaN(audio.playerRef.current.duration) &&
+                    <>
+                        <span> / </span>
+                        <span id='total-time-text'>{secondsToTimestamp(audio.playerRef.current.duration.toFixed(2))}</span>
+                    </>
+                }
             </div>
-            <VariableVolumeIcon
-                volume={volumeLevel}/>
-            <input
-                id='audio-player-volume'
-                type='range'
-                min={0}
-                max={1}
-                step='.01'
-                defaultValue={.5}
-                onChange={handleVolumeChange}
-                onInput={handleVolumeChange}/>
+            {!isMobileBrowser() && (
+                <>
+                <VariableVolumeIcon
+                    volume={volumeLevel}/>
+                <input
+                    id='audio-player-volume'
+                    type='range'
+                    min={0}
+                    max={1}
+                    step='.01'
+                    defaultValue={.5}
+                    onChange={handleVolumeChange}
+                    onInput={handleVolumeChange}/>
+                </>
+            )}
         </div>
     )
 }
