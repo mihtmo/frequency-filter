@@ -2,8 +2,8 @@
     display: grid;
     grid-template-columns: 40px 1fr auto;
     grid-template-rows: auto 40px;
-    width: 90vw;
-    max-width: 90vw;
+    width: calc(100vw - 125px);
+    max-width: calc(100vw - 125px);
     height: 70vh;
     min-height: 200px;
 }

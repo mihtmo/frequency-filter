@@ -86,7 +86,7 @@
     border: 1px dotted var(--border);
     padding: .5em;
     width: calc(100% - 2em);
-    background-color: var(--container-mid);
+    background-color: var(--container-back);
 }
 
 #open-sidebar-icon {

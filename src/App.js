@@ -94,9 +94,6 @@ function App() {
                         </div>
                     </div>
                 )}
-                <LightOrDarkIcon
-                    isDarkTheme={isDarkTheme}
-                    clickHandler={handleThemeChange}/>
                 <header className='page-header'>
                     <div className='title'>
                         <h1> Sound Explorer </h1>
@@ -112,6 +109,9 @@ function App() {
                         Your browser does not support the audio element.
                     </audio>
                 </header>
+                <LightOrDarkIcon
+                    isDarkTheme={isDarkTheme}
+                    clickHandler={handleThemeChange}/>
         </div>
     );
     }

@@ -1,28 +1,28 @@
 import './PresetButton.css'
+import InfoIcon from './icons/InfoIcon';
 import { BeetleIcon, BirdIcon, CarIcon, FrogIcon, OwlIcon } from './icons/SoundSourceIcons';
+import PresetInfoButton from './PresetInfoButton';
 
 // Button component for PresetMenu in Band-Pass-App
-const PresetButton = ( {label, onClick, imageName, sourceType } ) => {
+const PresetButton = ( { label, itemDict, onClick, isSelected } ) => {
 
     function handleClick() {
         onClick(label);
     }
 
     return (
-        <div className='preset-wrapper'>
+        <div className='preset-wrapper' data-selected={isSelected}>
             <button onClick={handleClick} className='preset-button'>
                 <div>
-                    {sourceType === 'bug' && <BeetleIcon/>}
-                    {sourceType === 'bird' && <BirdIcon/>}
-                    {sourceType === 'owl' && <OwlIcon/>}
-                    {sourceType === 'frog' && <FrogIcon/>}
-                    {sourceType === 'car' && <CarIcon/>}
+                    {itemDict?.sourceType === 'bug' && <BeetleIcon/>}
+                    {itemDict?.sourceType === 'bird' && <BirdIcon/>}
+                    {itemDict?.sourceType === 'owl' && <OwlIcon/>}
+                    {itemDict?.sourceType === 'frog' && <FrogIcon/>}
+                    {itemDict?.sourceType === 'car' && <CarIcon/>}
                 </div>
                 {label}
-                {/* {imageName && (
-                    <img className='preset-image' src={`./images/${imageName}`}/>
-                )} */}
             </button>
+            {itemDict?.image && <PresetInfoButton itemDict={itemDict}/>}
         </div>
     );
 }
