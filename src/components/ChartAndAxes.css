@@ -28,6 +28,7 @@
     This is a workaround for how Safari chooses to handle relative grid 
     dimensions. Seek a solution */
     height: calc(70vh - 40px);
+    min-height: 200px;
     box-sizing: border-box;
     width: 100%;
     grid-row: 1;
