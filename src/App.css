@@ -48,6 +48,11 @@ html {
   height: 100%;
 }
 
+#sound-explorer-description {
+  width: 85%;
+  margin: auto;
+}
+
 .theme-wrapper {
   text-align: center;
   color: var(--text-default);

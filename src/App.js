@@ -8,6 +8,7 @@ import LightOrDarkIcon from './components/icons/LightOrDarkIcon';
 import CustomAudioControls from './components/CustomAudioControls';
 import RotateIcon from './components/icons/RotateIcon';
 import isMobileBrowser from './helpers/isMobileBrowser';
+import PowerIcon from './components/icons/PowerIcon';
 
 function App() {
     const [isLandscapeMode, setIsLandscapeMode] = useState(
@@ -112,6 +113,74 @@ function App() {
                 <LightOrDarkIcon
                     isDarkTheme={isDarkTheme}
                     clickHandler={handleThemeChange}/>
+                <div id='sound-explorer-description'>
+                    <p> 
+                        Sound Explorer was created as a way to look into what 
+                        lies at the intersection of audio engineering and 
+                        ecology. 
+                    </p>
+                    <p> 
+                        Spend enough time in your backyard listening to the
+                        birds, frogs, crickets, trees, neighbors, and cars with
+                        which you share your space, and you'll inevitably begin
+                        dipping your toes into a field of study called 
+                        <a target='_blank' href='https://en.wikipedia.org/wiki/Soundscape_ecology'> soundscape ecology</a>.
+                        In short, soundscape ecology is the study of how
+                        organisms—humans most certainly included—interact with
+                        each other and with their shared environment on an
+                        acoustic level. Over time, many animals have evolved to
+                        sing within a specific range of frequencies, allowing
+                        them to communicate with their own species amidst the
+                        calls of other members of their community. This allows
+                        them to herald danger, find mates, say hello, understand
+                        their surroundings, and perform many other vital
+                        functions.
+                    </p>
+                    <p>
+                        It's often difficult for us as humans to appreciate the
+                        breadth of natural sounds in our environments, either 
+                        because of a focus on audio-based entertainment (podcasts, 
+                        music, conversation, you name it), the massive
+                        amount of noise pollution that exists in many of our
+                        environments (cars, AC units, construction, etc.), or
+                        simply as a result of our natural biological limitations 
+                        (there are a variety of animals who produce sound above 
+                        and below our natural hearing range).
+                    </p>
+                    <p>
+                        This tool is designed to cut through some of that noise
+                        and to provide an example of how species frequently 
+                        occupy somewhat discrete portions of the audio spectrum. 
+                        At its heart, Sound Explorer uses what's called a 
+                        band-pass filter. This kind of filter allows you to 
+                        listen to a specific range of frequencies within an 
+                        audio file while silencing others. Try activating the 
+                        filter by pressing the power icon or by selecting a
+                        preset in the menu on the right-hand side of the chart!
+                    </p>
+                    <p>
+                        The current demo uses a selection of recordings taken in
+                        Austin, TX. Try listening to the audio file without the
+                        filter activated and see how many different sounds you
+                        notice. Then try selecting preset ranges in the side
+                        menu to isolate individual species! Notice how, when you
+                        return to the unfiltered audio, it's easier to pluck out
+                        the animal you just isolated. Also notice how wide of a
+                        range the "Road Noise" preset occupies—us humans have
+                        been getting louder and louder over time, and our
+                        indiscriminate occupation of our soundscapes is a real
+                        ecological threat to many species.
+                    </p>
+                    <p>
+                        This is the first version of this tool! There will be
+                        updates to come, which will include additional audio 
+                        files as well as the ability to upload your own audio 
+                        files to use within the tool.
+                    </p>
+                    <p>
+                        Thanks for exploring! (January 2024)
+                    </p>
+                </div>
         </div>
     );
     }
