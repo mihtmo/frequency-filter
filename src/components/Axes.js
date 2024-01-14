@@ -39,9 +39,9 @@ const XAxis = ({ scale, domain, range, values, label }) => {
                 key={value}
                 fill='var(--border)'
                 style={{
-                fontSize: "10px",
-                textAnchor: "middle",
-                transform: "translateY(20px)"
+                    fontSize: "10px",
+                    textAnchor: "middle",
+                    transform: "translateY(20px)"
                 }}
             >
                 { value }
