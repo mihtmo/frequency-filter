@@ -17,7 +17,6 @@ const FFTVisualizer = ({ xScale, yScale, chartDims }) => {
         const sampleRate = audio.ctx.sampleRate;
         const binCount = audio.analyser.frequencyBinCount;
         // Find number of frequencies each bin expresses
-        console.log(sampleRate)
         const freqPerBin = ((sampleRate / 2) / binCount);
         
         const paintCanvas = () => {

@@ -57,7 +57,6 @@ const ChartAndAxes = () => {
     useEffect(() => {
         const chart = chartRef.current;
         const chartRect = chart.getBoundingClientRect();
-        console.log(chartRect);
         setChartDims({
             'width': chartRect.width,
             'height': chartRect.height,

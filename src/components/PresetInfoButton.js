@@ -15,7 +15,6 @@ const PresetInfoButton = ({ itemDict }) => {
         e.stopPropagation();
         if (e.target.id === 'preset-info-overlay') {
             setIsOpen(false);
-            console.log('hello')
         }
     }
 
