@@ -97,7 +97,7 @@ function App() {
                         </div>
                     </div>
                 )}
-                <header className='page-header'>
+                <div id='page-body'>
                     <div className='title'>
                         <h1> Sound Explorer </h1>
                     </div>
@@ -111,27 +111,17 @@ function App() {
                         <source src={sample} type='audio/mpeg'/>
                         Your browser does not support the audio element.
                     </audio>
-                </header>
-                <LightOrDarkIcon
-                    isDarkTheme={isDarkTheme}
-                    clickHandler={handleThemeChange}/>
-                <p> 
-                    Sound Explorer was created as a way to look into what 
-                    lies at the intersection of audio engineering and 
-                    ecology. 
-                </p>
-                <CustomDetails
-                    openSummary='Read Less'
-                    closedSummary='Read More'
-                    iconOrientation='both'
-                    body={
-                        <>
+                    <div className='description-wrapper'>
+                        <p> 
+                            Sound Explorer was created as a way to look into what 
+                            lies at the intersection of audio engineering and 
+                            ecology. 
+                        </p>
                         <p> 
                             Spend enough time in your backyard listening to the
                             birds, frogs, crickets, trees, neighbors, and cars with
                             which you share your space, and you'll inevitably begin
-                            dipping your toes into a field of study called 
-                            <a target='_blank' href='https://en.wikipedia.org/wiki/Soundscape_ecology'> soundscape ecology</a>.
+                            dipping your toes into a field of study called <a target='_blank' href='https://en.wikipedia.org/wiki/Soundscape_ecology'>soundscape ecology</a>.
                             In short, soundscape ecology is the study of how
                             organisms—humans most certainly included—interact with
                             each other and with their shared environment on an
@@ -187,11 +177,11 @@ function App() {
                         <p>
                             Thanks for exploring! (January 2024)
                         </p>
-                        </>
-                    }
-                    customOpenIcon={<BeetleIcon/>}
-                    customClosedIcon={<BeetleIcon/>}
-                    />
+                    </div>
+                </div>
+                <LightOrDarkIcon
+                    isDarkTheme={isDarkTheme}
+                    clickHandler={handleThemeChange}/>
         </div>
     );
     }

@@ -1,20 +1,13 @@
-.details-icon, .details-summary {
-    cursor: pointer;
-    font-weight: bold;
-}
-
 .details-summary-wrapper {
     display: flex;
     justify-content: center;
     align-items: center;
     width: fit-content;
     margin: auto;
-}
-
-.details-summary-wrapper:hover .details-icon {
-    transform: rotate(180deg);
+    cursor: pointer;
+    font-weight: 500;
 }
 
 .custom-details-wrapper {
-    margin: 1em;
+    width: 80%;
 }

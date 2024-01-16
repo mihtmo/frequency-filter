@@ -57,6 +57,7 @@ html {
   text-align: center;
   color: var(--text-default);
   font-family: 'montserrat';
+  font-weight: 200;
   background-color: var(--container-back);
 }
 
@@ -71,7 +72,27 @@ html {
   }
 } */
 
-.page-header {
+.details-icon .sound-source-icon{
+  height: 20px;
+  width: 20px;
+}
+
+.details-icon {
+  height: 20px;
+  width: 20px;
+  margin: .5em;
+}
+
+.details-summary-wrapper:hover .details-icon {
+  stroke-width: 10;
+  stroke: var(--text-default);
+}
+
+.details-summary-wrapper:hover {
+  font-weight: 600;
+}
+
+#page-body {
   background-color: var(--container-back);
   min-height: 100vh;
   display: flex;
@@ -80,6 +101,17 @@ html {
   justify-content: center;
   touch-action: manipulation;
   /* font-size: calc(10px + 2vmin); */
+  font-style: normal;
+  font-weight: 400;
+  margin: .5em;
+}
+
+h1 {
+  font-weight: 500;
+}
+
+h2 {
+  font-weight: 400;
 }
 
 .App-link {
@@ -96,6 +128,10 @@ html {
   bottom: 0;
   right: 0;
   width: fit-content;
+}
+
+.description-wrapper {
+  width: 80%;
 }
 
 @keyframes App-logo-spin {
@@ -116,4 +152,10 @@ html {
 .title {
   font-size: 1.5em;
   letter-spacing: .5em;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.title h1 {
+  margin-bottom: .5em;
 }

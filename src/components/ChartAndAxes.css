@@ -4,7 +4,7 @@
     grid-template-rows: auto 40px;
     width: calc(100vw - 125px);
     max-width: calc(100vw - 125px);
-    height: 70vh;
+    height: calc(70vh - 30px);
     min-height: 200px;
 }
 
@@ -27,7 +27,7 @@
     /* TODO: Hardcoding this size dependent on axis size is not great. 
     This is a workaround for how Safari chooses to handle relative grid 
     dimensions. Seek a solution */
-    height: calc(70vh - 40px);
+    height: calc(70vh - 70px);
     min-height: 200px;
     box-sizing: border-box;
     width: 100%;
