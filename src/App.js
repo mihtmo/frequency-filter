@@ -10,6 +10,7 @@ import RotateIcon from './components/icons/RotateIcon';
 import isMobileBrowser from './helpers/isMobileBrowser';
 import PowerIcon from './components/icons/PowerIcon';
 import CustomDetails from './components/CustomDetails';
+import { BeetleIcon } from './components/icons/SoundSourceIcons';
 
 function App() {
     const [isLandscapeMode, setIsLandscapeMode] = useState(
@@ -120,8 +121,8 @@ function App() {
                     ecology. 
                 </p>
                 <CustomDetails
-                    openSummary='Read More'
-                    closedSummary='Read Less'
+                    openSummary='Read Less'
+                    closedSummary='Read More'
                     iconOrientation='both'
                     body={
                         <>
@@ -188,12 +189,9 @@ function App() {
                         </p>
                         </>
                     }
-                    customOpenIcon='open'
-                    customClosedIcon='closed'
+                    customOpenIcon={<BeetleIcon/>}
+                    customClosedIcon={<BeetleIcon/>}
                     />
-                <details id='sound-explorer-description'>
-                    
-                </details>
         </div>
     );
     }

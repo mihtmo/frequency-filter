@@ -1,0 +1,20 @@
+.details-icon, .details-summary {
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.details-summary-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: fit-content;
+    margin: auto;
+}
+
+.details-summary-wrapper:hover .details-icon {
+    transform: rotate(180deg);
+}
+
+.custom-details-wrapper {
+    margin: 1em;
+}
