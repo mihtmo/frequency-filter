@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "./sound-explorer/static/css/main.5e1aafc5.css",
+    "main.js": "./sound-explorer/static/js/main.babea02b.js",
+    "static/js/787.5713ed2d.chunk.js": "./sound-explorer/static/js/787.5713ed2d.chunk.js",
+    "static/media/nature-audio-combo.mp3": "./sound-explorer/static/media/nature-audio-combo.29b45148b5cb6a9367b1.mp3",
+    "index.html": "./sound-explorer/index.html",
+    "main.5e1aafc5.css.map": "./sound-explorer/static/css/main.5e1aafc5.css.map",
+    "main.babea02b.js.map": "./sound-explorer/static/js/main.babea02b.js.map",
+    "787.5713ed2d.chunk.js.map": "./sound-explorer/static/js/787.5713ed2d.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.5e1aafc5.css",
+    "static/js/main.babea02b.js"
+  ]
+}
